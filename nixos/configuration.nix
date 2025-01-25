@@ -7,9 +7,6 @@
   ...
 }: {
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
@@ -39,11 +36,6 @@
       #   });
       # })
     ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
   };
 
   nix = let
@@ -125,24 +117,21 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     helix # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # zed
-    # zsh
+    zsh
     # wget
     # firefox
-    # git
-    # nodejs_22
+    git
+    nodejs_22
     # python39
-    # kitty
-    # gnome-tweaks
-    # gnome-shell
-    # gnome-browser-connector
+    kitty
+    gnome-tweaks
+    gnome-shell
+    gnome-browser-connector
     # autodock-vina
     # pymol
   ];
