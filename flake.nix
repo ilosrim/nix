@@ -4,7 +4,7 @@
   inputs = {
     # nix derivations
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixpkgs-24.11"; # stable channel
+      url = "github:nixos/nixpkgs/nixpkgs-24.05"; # stable channel
     };
 
     # home manager
