@@ -115,7 +115,7 @@
     packages = with pkgs; [
       telegram-desktop
       firefox
-      zed
+      zed-editor
       zsh
       wget
       curl
