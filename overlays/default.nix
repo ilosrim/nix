@@ -1,25 +1,23 @@
-{ inputs, fetchurl, ... }: {
-  flake.overlays.default = final: prev: {
-    # rescript
-    tree-sitter-grammars = prev.tree-sitter-grammars // {
-      tree-sitter-rescript = prev.tree-sitter.buildGrammar {
-        version = inputs.ts-rescript.lastModifiedDate;
-        language = "rescript";
-        generate = true;
-        src = inputs.ts-rescript;
-      };
+# This file defines overlays
+{inputs, ...}: {
+  # This one brings our custom packages from the 'pkgs' directory
+  additions = final: _prev: import ../pkgs final.pkgs;
+
+  # This one contains whatever you want to overlay
+  # You can change versions, add patches, set compilation flags, anything really.
+  # https://nixos.wiki/wiki/Overlays
+  modifications = final: prev: {
+    # example = prev.example.overrideAttrs (oldAttrs: rec {
+    # ...
+    # });
+  };
+
+  # When applied, the unstable nixpkgs set (declared in the flake inputs) will
+  # be accessible through 'pkgs.unstable'
+  unstable-packages = final: _prev: {
+    unstable = import inputs.nixpkgs-unstable {
+      system = final.system;
+      config.allowUnfree = true;
     };
-    # nodePackages = prev.nodePackages // {
-    #   rescript-language-server = prev.buildNodePackage {
-    #     name = "rescript language server";
-    #     packageName = "@rescript/language-server";
-    #     src = fetchurl {
-    #       url =
-    #         "https://registry.npmjs.org/@rescript/language-server/-/language-server-1.58.0.tgz";
-    #       sha512 =
-    #         "0m0j9immcwg97qrcwl0y3yd0hqjymrc321wcdc5b28m3c9w1snxrpr2g95617jr4hnwzrh4qi1hj5lb4wi5vialip7fb3cw2prh2f30";
-    #     };
-    #   };
-    # };
   };
 }
