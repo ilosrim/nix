@@ -1,0 +1,3 @@
+{
+  ilosrim = import ./ilosrim.nix;
+}
