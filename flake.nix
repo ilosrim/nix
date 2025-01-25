@@ -17,10 +17,10 @@
     };
 
     # nix darwin
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # darwin = {
+    #  url = "github:lnl7/nix-darwin";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # nixified vim
     nixvim = {
@@ -55,7 +55,6 @@
 
       # Define Func for Home Manager configuration
       mkHomeConfig = system: username:
-        if system != "x86_64-darwin" || "aarch64-darwin" then
           home-manager.lib.homeManagerConfiguration {
             pkgs = pkgs system;
             modules = [
@@ -68,31 +67,12 @@
               nixvim.homeManagerModules.nixvim
             ];
           }
-        else
-          home-manager.darwinModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.${username}.imports =
-                [ ./modules/home-manager nixvim.nixDarwinModules.nixvim ];
-            };
-            users.users.${username}.home = "/Users/${username}";
-          };
 
       # Define Func for NixOS configuration
       mkNixosConfig = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ ./nixos/configuration.nix ];
       };
-
-      # Define Func for Darwin configuration
-      mkDarwinConfig = system: username:
-        darwin.lib.darwinSystem {
-          lib = nixpkgs.lib;
-          pkgs = pkgs system;
-          modules = [ ./modules/darwin (mkHomeConfig system username) ];
-        };
 
       # Define Func for Nixvim Standalone
       mkNixvim = system:
@@ -106,9 +86,7 @@
           };
         };
     in {
-      # darwin & darwin home manager
-      darwinConfigurations.${user.name} = mkDarwinConfig user.darwin user.name;
-
+    
       # standalone linux home manager 
       homeConfigurations.${user.name} = mkHomeConfig user.linux user.name;
 
