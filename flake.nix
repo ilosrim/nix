@@ -41,7 +41,7 @@
     let
       # Define user 
       user = {
-        name = "kemalmao";
+        name = "ilosrim";
         linux = "x86_64-linux";
         darwin = "x86_64-darwin";
       };

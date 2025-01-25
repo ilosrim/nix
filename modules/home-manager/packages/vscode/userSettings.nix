@@ -63,7 +63,7 @@
   "editor.lineHeight" = 24;
   "window.density.editorTabHeight" = "compact";
 
-  "window.title" = "kemalmao";
+  "window.title" = "ilosrim";
   "window.commandCenter" = false;
   "editor.cursorBlinking" = "phase";
   "editor.cursorSmoothCaretAnimation" = "on";

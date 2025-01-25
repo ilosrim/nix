@@ -20,7 +20,7 @@
       statdb = "systemctl status mysql";
       nixpkg = "nix-env -iA nixpkgs.";
       nixospkg = "nix-env -iA nixos.";
-      vin = "nix run github:kemalmao19/flake#nixvim";
+      vin = "nix run github:ilosrim/nix#nixvim";
       tm = "tmux";
       v = "nvim";
       ls = "eza";

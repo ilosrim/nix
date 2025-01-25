@@ -1,6 +1,6 @@
 {
   plugins.alpha = let
-    kemalmao = [
+    ilosrim = [
       "                              :                          .                                "
       "                             +##*+-:.                 ::---                               "
       "                            -########-            :+#*------                              "
@@ -49,7 +49,7 @@
           position = "center";
         };
         type = "text";
-        val = kemalmao;
+        val = ilosrim;
       }
       {
         type = "padding";
@@ -93,7 +93,7 @@
           position = "center";
         };
         type = "text";
-        val = "https://github.com/kemalmao19/flake";
+        val = "https://github.com/ilosrim/nix";
       }
     ];
   };
