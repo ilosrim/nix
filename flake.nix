@@ -14,10 +14,10 @@
     };
 
     # nix darwin
-    # darwin = {
-    #   url = "github:lnl7/nix-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # nixified vim
     nixvim = {
