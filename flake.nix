@@ -7,7 +7,7 @@
       url = "github:nixos/nixpkgs/nixos-24.11"; # stable channel
     };
     nixpkgs-unstabel = {
-      url = "github:nixos/nixpkgs/nixos-unstabe"
+      url = "github:nixos/nixpkgs/nixos-unstabe";
     };
 
     # home manager
