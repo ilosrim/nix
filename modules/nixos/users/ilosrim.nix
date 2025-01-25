@@ -23,10 +23,25 @@
           "vboxusers"
           "admins"
         ];
+        shell = pkgs.zsh;
         packages =
           (with pkgs; [
-            paper-plane
-            dissent
+            telegram-desktop
+            firefox
+            zed-editor
+            zsh
+            wget
+            curl
+            gcc
+            git
+            nodejs_22
+            python39
+            kitty
+            gnome-tweaks
+            gnome-shell
+            gnome-browser-connector
+            autodock-vina
+            pymol
           ])
           ++ (with pkgs.unstable; []);
       };

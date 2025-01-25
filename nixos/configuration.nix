@@ -60,7 +60,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   networking.hostName = "Dev";
 
   # Enable networking
@@ -85,6 +85,9 @@
     variant = "";
   };
 
+  # shell
+  programs.zsh.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -108,29 +111,29 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ilosrim = {
-    isNormalUser = true;
-    description = "Mirsoli";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      telegram-desktop
-      firefox
-      zed-editor
-      zsh
-      wget
-      curl
-      gcc
-      git
-      nodejs_22
-      python39
-      kitty
-      gnome-tweaks
-      gnome-shell
-      gnome-browser-connector
-      autodock-vina
-      pymol
-    ];
-  };
+  # users.users.ilosrim = {
+  #   isNormalUser = true;
+  #   description = "Mirsoli";
+  #   extraGroups = [ "networkmanager" "wheel" ];
+  #   packages = with pkgs; [
+  #     telegram-desktop
+  #     firefox
+  #     zed-editor
+  #     zsh
+  #     wget
+  #     curl
+  #     gcc
+  #     git
+  #     nodejs_22
+  #     python39
+  #     kitty
+  #     gnome-tweaks
+  #     gnome-shell
+  #     gnome-browser-connector
+  #     autodock-vina
+  #     pymol
+  #   ];
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -73,9 +73,6 @@
         ];
       };
     };
-
-    
     devShells = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    
   };
 }
